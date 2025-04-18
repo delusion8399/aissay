@@ -1,0 +1,350 @@
+/* PDFNinja-inspired styles */
+
+.chunky-container {
+  background-color: white;
+  border: 4px solid black;
+  border-radius: 16px;
+  box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chunky-container:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
+}
+
+.chunky-title {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: black;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.chunky-subtitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+  position: relative;
+  display: inline-block;
+}
+
+.chunky-badge {
+  display: inline-block;
+  background-color: var(--tertiary);
+  color: black;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border: 3px solid black;
+  border-radius: 30px;
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+  margin-left: 1rem;
+  transform: rotate(3deg);
+  position: relative;
+  top: -5px;
+}
+
+.chunky-card {
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 12px;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.chunky-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px 0px rgba(0,0,0,1);
+}
+
+.chunky-card-accent-1 {
+  border-top: 10px solid var(--primary);
+}
+
+.chunky-card-accent-2 {
+  border-top: 10px solid var(--secondary);
+}
+
+.chunky-card-accent-3 {
+  border-top: 10px solid var(--tertiary);
+}
+
+.chunky-card-accent-4 {
+  border-top: 10px solid var(--quaternary);
+}
+
+.chunky-button {
+  background-color: var(--primary);
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border: 3px solid black;
+  border-radius: 8px;
+  box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.chunky-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px 0px rgba(0,0,0,1);
+}
+
+.chunky-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+}
+
+.chunky-button-secondary {
+  background-color: var(--secondary);
+}
+
+.chunky-button-tertiary {
+  background-color: var(--tertiary);
+  color: black;
+}
+
+.chunky-button-quaternary {
+  background-color: var(--quaternary);
+}
+
+.chunky-tab {
+  background-color: white;
+  color: black;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border: 3px solid black;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.chunky-tab.active {
+  background-color: var(--tertiary);
+  transform: translateY(-5px);
+  z-index: 10;
+}
+
+.chunky-tab:hover:not(.active) {
+  background-color: var(--background);
+  transform: translateY(-2px);
+}
+
+.chunky-tab-content {
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 0 8px 8px 8px;
+  padding: 2rem;
+  position: relative;
+  z-index: 5;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+}
+
+.chunky-input {
+  width: 100%;
+  padding: 1rem;
+  border: 3px solid black;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 1rem;
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  transition: all 0.2s ease;
+}
+
+.chunky-input:focus {
+  outline: none;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+  transform: translate(-2px, -2px);
+}
+
+.chunky-select {
+  width: 100%;
+  padding: 1rem;
+  border: 3px solid black;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 1rem;
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.5em;
+}
+
+.chunky-select:focus {
+  outline: none;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+  transform: translate(-2px, -2px);
+}
+
+.chunky-label {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Tool grid layout */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.tool-card {
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 12px;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tool-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px 0px rgba(0,0,0,1);
+}
+
+.tool-card-accent-1 {
+  border-top: 10px solid var(--primary);
+}
+
+.tool-card-accent-2 {
+  border-top: 10px solid var(--secondary);
+}
+
+.tool-icon {
+  width: 60px;
+  height: 60px;
+  background-color: var(--tertiary);
+  border: 3px solid black;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.tool-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.tool-description {
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Essay display */
+.essay-display-chunky {
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+  height: 500px;
+  overflow-y: auto;
+}
+
+.essay-display-chunky::-webkit-scrollbar {
+  width: 12px;
+}
+
+.essay-display-chunky::-webkit-scrollbar-track {
+  background: white;
+  border: 2px solid black;
+}
+
+.essay-display-chunky::-webkit-scrollbar-thumb {
+  background-color: var(--tertiary);
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+/* Copy button */
+.copy-button-chunky {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--secondary);
+  color: black;
+  border: 2px solid black;
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,1);
+}
+
+.copy-button-chunky:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+}
+
+/* Word count badge */
+.word-count-chunky {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: var(--tertiary);
+  color: black;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  box-shadow: 2px 2px 0px 0px rgba(0,0,0,1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chunky-title {
+    font-size: 2.5rem;
+  }
+  
+  .chunky-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .chunky-container {
+    padding: 1.5rem;
+  }
+  
+  .tool-grid {
+    grid-template-columns: 1fr;
+  }
+}

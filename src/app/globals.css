@@ -1,26 +1,533 @@
 @import "tailwindcss";
+@import "../components/pdfninja-styles.css";
 
 :root {
-  --background: #ffffff;
+  --background: #f0f0f0;
   --foreground: #171717;
+  --accent: #FF6B6B;
+  --accent-2: #4ECDC4;
+  --accent-3: #FFE66D;
+  --accent-4: #1A535C;
+  --accent-5: #FF9F1C;
+  --primary: #FF6B6B;
+  --secondary: #4ECDC4;
+  --tertiary: #FFE66D;
+  --quaternary: #FF9F1C;
+  --quinary: #1A535C;
+  --success: #7bffa0;
+  --warning: #FFE66D;
+  --danger: #FF6B6B;
+  --info: #4ECDC4;
+  --gradient-1: linear-gradient(90deg, var(--primary) 0%, var(--accent-5) 100%);
+  --gradient-2: linear-gradient(90deg, var(--accent-2) 0%, var(--accent-4) 100%);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-poppins);
+  --font-mono: var(--font-roboto-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Neobrutalism styles */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* PDFNinja-inspired styles */
+.ninja-container {
+  background-color: white;
+  border: 4px solid black;
+  border-radius: 16px;
+  box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ninja-container:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
+}
+
+.ninja-title {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(45deg, var(--primary), var(--quaternary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-text-stroke: 2px black;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.ninja-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: black;
+  border-radius: 3px;
+}
+
+.ninja-subtitle {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+  position: relative;
+  display: inline-block;
+}
+
+.ninja-badge {
+  display: inline-block;
+  background-color: var(--tertiary);
+  color: black;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border: 3px solid black;
+  border-radius: 30px;
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+  margin-left: 1rem;
+  transform: rotate(3deg);
+  position: relative;
+  top: -5px;
+}
+
+.ninja-card {
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 12px;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.ninja-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px 0px rgba(0,0,0,1);
+}
+
+.ninja-card-accent-1 {
+  border-top: 10px solid var(--primary);
+}
+
+.ninja-card-accent-2 {
+  border-top: 10px solid var(--secondary);
+}
+
+.ninja-card-accent-3 {
+  border-top: 10px solid var(--tertiary);
+}
+
+.ninja-card-accent-4 {
+  border-top: 10px solid var(--quaternary);
+}
+
+.ninja-button {
+  background-color: var(--primary);
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border: 3px solid black;
+  border-radius: 8px;
+  box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+}
+
+.ninja-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px 0px rgba(0,0,0,1);
+}
+
+.ninja-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+}
+
+.ninja-button-secondary {
+  background-color: var(--secondary);
+}
+
+.ninja-button-tertiary {
+  background-color: var(--tertiary);
+  color: black;
+}
+
+.ninja-button-quaternary {
+  background-color: var(--quaternary);
+}
+
+.ninja-tab {
+  background-color: white;
+  color: black;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border: 3px solid black;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.ninja-tab.active {
+  background-color: var(--tertiary);
+  transform: translateY(-5px);
+  z-index: 10;
+}
+
+.ninja-tab:hover:not(.active) {
+  background-color: var(--background);
+  transform: translateY(-2px);
+}
+
+.ninja-tab-content {
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 0 8px 8px 8px;
+  padding: 2rem;
+  position: relative;
+  z-index: 5;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+}
+
+.neo-container {
+  background-color: white;
+  border: 4px solid black;
+  border-radius: 12px;
+  box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.neo-container::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--accent-3);
+  border: 3px solid black;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.neo-title {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: black;
+  -webkit-text-stroke: 2px black;
+  text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
+  line-height: 1.1;
+}
+
+.neo-subtitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--accent-4);
+  position: relative;
+  display: inline-block;
+}
+
+.neo-subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-5);
+  border-radius: 4px;
+}
+
+.neo-card {
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 12px;
+  box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.neo-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+}
+
+.neo-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background-color: var(--accent-2);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.neo-button {
+  background-color: var(--accent);
+  color: black;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border: 3px solid black;
+  border-radius: 8px;
+  box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.neo-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px 0px rgba(0,0,0,1);
+}
+
+.neo-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+}
+
+.neo-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.neo-input {
+  width: 100%;
+  padding: 1rem;
+  border: 3px solid black;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 1rem;
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  transition: all 0.2s ease;
+}
+
+.neo-input:focus {
+  outline: none;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+  transform: translate(-2px, -2px);
+}
+
+.neo-select {
+  width: 100%;
+  padding: 1rem;
+  border: 3px solid black;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 1rem;
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.5em;
+}
+
+.neo-select:focus {
+  outline: none;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+  transform: translate(-2px, -2px);
+}
+
+.neo-label {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Custom scrollbar for essay display */
+.essay-display {
+  scrollbar-width: thin;
+  scrollbar-color: black var(--accent-3);
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 5px 5px 0px 0px rgba(0,0,0,1);
+  height: 500px;
+  overflow-y: auto;
+}
+
+.essay-display::-webkit-scrollbar {
+  width: 12px;
+}
+
+.essay-display::-webkit-scrollbar-track {
+  background: white;
+  border: 2px solid black;
+}
+
+.essay-display::-webkit-scrollbar-thumb {
+  background-color: var(--accent-3);
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+/* Decorative elements */
+.neo-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid black;
+  z-index: -1;
+}
+
+.neo-circle-1 {
+  width: 100px;
+  height: 100px;
+  background-color: var(--accent-3);
+  top: -30px;
+  right: 10%;
+}
+
+.neo-circle-2 {
+  width: 60px;
+  height: 60px;
+  background-color: var(--accent-2);
+  bottom: 10%;
+  left: 5%;
+}
+
+.neo-zigzag {
+  position: absolute;
+  width: 150px;
+  height: 20px;
+  background: linear-gradient(45deg, var(--accent) 25%, transparent 25%) -20px 0,
+              linear-gradient(-45deg, var(--accent) 25%, transparent 25%) -20px 0,
+              linear-gradient(45deg, transparent 75%, var(--accent) 75%),
+              linear-gradient(-45deg, transparent 75%, var(--accent) 75%);
+  background-size: 20px 20px;
+  border: 3px solid black;
+  z-index: -1;
+  right: 15%;
+  bottom: 20%;
+  transform: rotate(-15deg);
+}
+
+/* Feature cards */
+.feature-card {
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: var(--accent-5);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  background-color: var(--accent-3);
+  border: 3px solid black;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Copy button */
+.copy-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--accent-2);
+  color: black;
+  border: 2px solid black;
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.copy-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px 0px rgba(0,0,0,1);
+}
+
+/* Word count badge */
+.word-count {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: var(--accent-3);
+  color: black;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .neo-title {
+    font-size: 2.5rem;
+  }
+
+  .neo-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .neo-container {
+    padding: 1.5rem;
+  }
+
+  .neo-circle-1, .neo-circle-2, .neo-zigzag {
+    display: none;
+  }
 }
